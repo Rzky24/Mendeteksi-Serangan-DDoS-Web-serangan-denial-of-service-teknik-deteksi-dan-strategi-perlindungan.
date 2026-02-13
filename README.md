@@ -133,15 +133,37 @@ Situs web suku cadang sepeda Anda telah mengalami serangan penolakan layanan (de
 Jawablah pertanyaan-pertanyaan di bawah ini.
 Berapakah alamat IP penyerang?
 
+masuk terminal :  cd Desktop/
+lanjut ketik vim access.log - enter
+<img width="1360" height="629" alt="image" src="https://github.com/user-attachments/assets/0e9d7691-77c7-4d6e-a177-34ed670dac6f" />
+
+
 JAWABAN : 203.12.23.195
 
 Jawaban yang Benar
 Halaman mana yang berulang kali menjadi target permintaan penyerang?
+cara sama seperti di atas dan kali ini lihat di bagian /login
+<img width="1360" height="629" alt="image" src="https://github.com/user-attachments/assets/4ce3e2d5-04f7-4718-858e-c296052c7cae" />
 
 JAWABAN : /login
 
 Jawaban yang Benar
 Setelah serangan tersebut, kode kesalahan apa yang diterima oleh pengguna yang sah?
+cara sama seperti yang di atas 
+lihat di bagian isi di baris setelah server 200 yaitu 503
+
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 200 519 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
+203.12.23.195 - - [31/Aug/2025:01:59:08 +0000] "GET /login HTTP/1.1" 503 267 "-" "curl/7.88.1"
 
 JAWABAN : 503
 
