@@ -133,7 +133,9 @@ Situs web suku cadang sepeda Anda telah mengalami serangan penolakan layanan (de
 Jawablah pertanyaan-pertanyaan di bawah ini.
 Berapakah alamat IP penyerang?
 
-masuk terminal :  cd Desktop/
+masuk terminal :  cd Desktop/ 
+karena file ada di desktop 
+kita pakai perintah vim untuk membuka file / vim namafile membuka 
 lanjut ketik vim access.log - enter
 <img width="1360" height="629" alt="image" src="https://github.com/user-attachments/assets/0e9d7691-77c7-4d6e-a177-34ed670dac6f" />
 
@@ -191,14 +193,43 @@ Selama latihan ini, Anda akan menganalisis log akses web yang dikumpulkan selama
 Jawablah pertanyaan-pertanyaan di bawah ini.
 Apa yang paling sering diminta uri?
 
-/search
+buka splunk ketik di pencarian : index="main" ini akan menapilkan semua event peristiwa 
+ketik pencarian : 
+index="main" 
+| stats count AS request BY uri 
+| sort - request
 
-Jawaban yang Benar
+index="main"
+Menentukan sumber data log yang akan dianalisis. 
+| stats count AS request BY uri
+“Hitung berapa kali setiap URI diakses, lalu tampilkan jumlahnya sebagai request”
+| sort - request
+Mengurutkan hasil dari yang PALING SERING diakses.
+
+<img width="1364" height="678" alt="image" src="https://github.com/user-attachments/assets/53af0f6d-d57e-45fb-bcc4-1078ad0ae565" />
+
+
+
+jawaban : /search
+
+
 Manakah clientipyang mengajukan permintaan terbanyak ke target uri?
 
-203.0.113.7
+ketik di pencarian :  
+index="main" uri="/search"
+| top clientip
 
-Jawaban yang Benar
+penjelasan
+index="main"  Mengambil semua log event dari index main
+uri="/search" “Ambil semua event log di index main yang mengakses endpoint /search”
+| top clientip  Tampilkan IP yang paling sering mengakses /search
+
+
+dan muncul hasilnya 
+
+jawaban : 203.0.113.7
+
+
 
 Berapa banyak alamat IP yang menjadi bagian dari botnet yang menyerang situs web Anda?
 
