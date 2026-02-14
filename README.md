@@ -232,8 +232,48 @@ jawaban : 203.0.113.7
 
 
 Berapa banyak alamat IP yang menjadi bagian dari botnet yang menyerang situs web Anda?
+ketik query :
+index="main" uri="/search"
+|  stats dc(clientip) AS botnetip count AS total
 
-60
+penjelasan query :
+index="main" uri="/search"
+Sama seperti sebelumnya, ini filter data.
+
+index="main"
+Ambil log dari index main
+
+uri="/search"
+stats
+Command agregasi data.
+
+dc(clientip)
+dc = distinct count
+Fungsinya:
+Menghitung jumlah IP unik
+BUKAN total request
+Banyak IP unik → indikasi:
+botnet
+rotating proxy
+CDN abuse
+
+AS botnetip
+Rename hasil dc(clientip) menjadi botnetip
+Secara konsep:
+jumlah IP unik yang mengakses /search
+Nama ini analisis-driven, bukan nama default Splunk
+Nama ini analisis-driven, bukan nama default Splunk
+
+count AS total
+count = total event
+Artinya:
+total request ke /search
+Rename jadi total agar jelas
+
+
+<img width="1352" height="688" alt="image" src="https://github.com/user-attachments/assets/ebb8cb2e-d950-4f0f-bcbb-fb754cee0a93" />
+
+jawabn  : 60
 
 Jawaban yang Benar
 Manakah useragentyang paling sering digunakan oleh lalu lintas penyerang?
