@@ -277,15 +277,93 @@ jawabn  : 60
 
 Jawaban yang Benar
 Manakah useragentyang paling sering digunakan oleh lalu lintas penyerang?
+ketik di query:
+index="main" uri="/search"
+|  top useragent
 
-Java/1.8.0_181
+penjelasan query: 
+index="main"
+Sumber data log utama
+
+  uri="/search"
+  Filter khusus endpoint /search
+  Endpoint ini sering jadi target:
+  scraping
+  automation
+  bot abuse
+
+| top useragent
+Ini bagian identifikasi perilaku client.
+top
+Menampilkan nilai yang paling sering muncul
+Otomatis:
+dihitung
+diurutkan
+ditampilkan persentasenya 
+
+useragent
+Informasi aplikasi / tool yang digunakan client
+Bisa berisi:
+browser normal (Chrome, Firefox)
+  
+jawaban :Java/1.8.0_181
 
 Jawaban yang Benar
 
 Gunakan timechartperintah tersebut untuk memvisualisasikan permintaan.
 Berapa jumlah permintaan puncak per detik selama serangan?
 
-207
+ketik query :
+index="main" uri="/search"
+| timechart span=1s count by uri limit=5
+
+
+🔹 index="main"
+Sumber log utama
+
+🔹 uri="/search"
+Filter event khusus endpoint /search
+Endpoint ini sering:
+diserang bot
+di-scrape
+di-flood request
+📌 Sampai sini:
+“Ambil semua log akses ke /search”
+
+| timechart span=1s count by uri limit=5
+Ini bagian visual + deteksi anomali waktu.
+
+🔹 timechart
+Membuat grafik time-series
+
+Digunakan untuk:
+melihat pola
+
+lonjakan (spike)
+burst traffic
+
+🔹 span=1s
+Interval waktu 1 detik
+Artinya:
+jumlah request dihitung per detik
+📌 Kenapa 1 detik penting?
+Human tidak bisa request puluhan kali per detik
+Bot bisa → red flag kuat
+🔹 count
+Menghitung jumlah event di setiap interval waktu
+🔹 by uri
+Memecah grafik berdasarkan nilai uri
+Tapi karena sudah difilter:
+
+Kesimpulan Teknis
+Query ini:
+memvisualisasikan request per detik
+sangat efektif untuk:
+bot detection
+abuse detection
+SOC alerting
+
+jawaban : 207
 
 Jawaban yang Benar
 
